@@ -2,6 +2,7 @@ import { Button } from "./FollowButton.styled";
 import { useChangeFollowersQuantityMutation } from "../../redux/users/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { plusFollowList, minusFollowList } from '../../redux/follow/slice'
+import PropTypes from "prop-types";
 
 export const FollowButton = ({ currentUser }) => {
   const dispatch = useDispatch();
@@ -44,3 +45,17 @@ export const FollowButton = ({ currentUser }) => {
   );
 };
 // export default FollowButton;
+
+FollowButton.propTypes = {
+  currentUser: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      user: PropTypes.string,
+      avatar: PropTypes.string,
+      tweets: PropTypes.string,
+    })
+  ).isRequired,
+  followers: PropTypes.func.isRequired,
+}
+ 
+  

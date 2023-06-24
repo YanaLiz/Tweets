@@ -1,5 +1,6 @@
 import { FollowButton } from '../FollowButton/FollowButton'
 import { Container, ImageContainer,Text,Img,ProfileImgContainer,Line,Logo } from "./TweetCard.styled"
+import PropTypes from "prop-types";
 
 export const TweetCard = ({user}) => {
   return (
@@ -16,3 +17,14 @@ export const TweetCard = ({user}) => {
     </Container>
   );
 }
+
+
+TweetCard.propTypes = {
+  user: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string,
+      tweets: PropTypes.string,
+    })
+  ).isRequired,
+  followers: PropTypes.func.isRequired,
+};
